@@ -8,7 +8,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 
 const ROTAS = [
     {
-        href: '/',
+        href: '/pedido',
         icon: (<InsertDriveFileIcon />),
         title: 'Pedido'
     },

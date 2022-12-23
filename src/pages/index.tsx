@@ -1,10 +1,16 @@
-import { Container as Contents } from '@mui/material';
-import Layout from '../components/layout';
+import type { ReactElement } from "react";
+import type { NextPageWithLayout } from "./_app";
+import { Container as Contents } from "@mui/material";
+import Layout from "../components/layout";
 
-export default function Home() {
+const Page: NextPageWithLayout = () => {
   return (
-    <Layout>
-      <Contents maxWidth={false}><p>HOME</p></Contents>
-    </Layout>
-  )
-}
+    <Contents maxWidth={false}>
+      <p>HOME</p>
+    </Contents>
+  );
+};
+
+Page.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+
+export default Page;
