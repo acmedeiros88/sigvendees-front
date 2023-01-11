@@ -45,7 +45,7 @@ export default function Sidebar(props: SidebarProps) {
           backgroundColor: "rgba(255, 255, 255, 0.04)",
           cursor: "default",
           display: "flex",
-          px: 3,
+          px: 2,
           py: 2.2,
         }}
       >
@@ -57,9 +57,9 @@ export default function Sidebar(props: SidebarProps) {
       <Divider sx={{ borderColor: "#2D3748" }} />
 
       <Box sx={{ flexGrow: 1, my: 3 }}>
-        {ROTAS.map((rota) => (
+        {ROTAS.map((rota, index) => (
           <NavItem
-            key={rota.title}
+            key={index}
             icon={rota.icon}
             href={rota.href}
             title={rota.title}

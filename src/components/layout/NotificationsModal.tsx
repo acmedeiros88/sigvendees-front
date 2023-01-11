@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { set, sub, formatDistanceToNow } from "date-fns";
 import {
   Box,
@@ -16,56 +16,15 @@ import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Notificacao } from "../../models/INotificacao";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
-
-const NOTIFICATIONS = [
-  {
-    id: 1,
-    titulo: "Your order is placed",
-    descricao: "waiting for shipping",
-    criadoEm: set(new Date(), { hours: 10, minutes: 30 }),
-    isLido: true,
-  },
-  {
-    id: 2,
-    titulo: "Teste",
-    descricao: "answered to your comment on the Minimal",
-    criadoEm: sub(new Date(), { hours: 3, minutes: 30 }),
-    isLido: true,
-  },
-  {
-    id: 3,
-    titulo: "You have new message",
-    descricao: "5 unread messages",
-    criadoEm: sub(new Date(), { days: 1, hours: 3, minutes: 30 }),
-    isLido: false,
-  },
-  {
-    id: 4,
-    titulo: "You have new mail",
-    descricao: "sent from Guido Padberg",
-    criadoEm: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
-    isLido: false,
-  },
-  {
-    id: 5,
-    titulo: "Delivery processing",
-    descricao: "Your order is being shipped",
-    criadoEm: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),
-    isLido: false,
-  },
-];
+import { NOTIFICACOES_DEV } from "../../_mocks/notificacoes";
 
 export default function NotificationModal() {
   const [open, setOpen] = useState<HTMLElement | null>(null);
   const [notificacoes, setNotificacoes] = useState<Notificacao[]>([]);
 
-  useEffect(() => {
-    setNotificacoes(NOTIFICATIONS);
+  const handleGetData = useCallback(async () => {
+    setNotificacoes(NOTIFICACOES_DEV);
   }, []);
-
-  const totalNaoLido = notificacoes.filter(
-    (item) => item.isLido === false
-  ).length;
 
   const handleOpen = (event: any) => {
     setOpen(event.currentTarget);
@@ -84,13 +43,21 @@ export default function NotificationModal() {
     );
   };
 
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
+
+  const totalNaoLido = notificacoes.filter(
+    (item) => item.isLido === false
+  ).length;
+
   return (
     <>
       <Tooltip title="Notificações">
         <IconButton
-          color={open ? "primary" : "default"}
+          color={open ? "secondary" : "default"}
           onClick={handleOpen}
-          sx={{ mr: 2 }}
+          sx={{ width: 40, height: 40 }}
         >
           <Badge badgeContent={totalNaoLido} color="error">
             <NotificationsRoundedIcon fontSize="small" />

@@ -3,6 +3,7 @@ import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationModal from "./NotificationsModal";
 import AccountDetailModal from "./AccountDetailModal";
+import ToggleColorModeIcon from "./ToggleColorModeIcon";
 
 interface NavbarHeaderProps {
   onSidebarOpen(): void;
@@ -23,14 +24,7 @@ export default function NavbarHeader(props: NavbarHeaderProps) {
       }}
       {...props.other}
     >
-      <Toolbar
-        disableGutters
-        sx={{
-          minHeight: 64,
-          left: 0,
-          px: 3,
-        }}
-      >
+      <Toolbar disableGutters sx={{ minHeight: 64, left: 0, px: 3 }}>
         <IconButton
           onClick={props.onSidebarOpen}
           sx={{ display: { xs: "inline-flex", lg: "none" } }}
@@ -41,7 +35,7 @@ export default function NavbarHeader(props: NavbarHeaderProps) {
         <Box sx={{ flexGrow: 1 }} />
 
         <NotificationModal />
-
+        <ToggleColorModeIcon />
         <AccountDetailModal />
       </Toolbar>
     </NavbarRoot>

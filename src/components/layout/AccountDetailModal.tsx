@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Router from "next/router";
 import {
   Box,
@@ -10,18 +10,14 @@ import {
 } from "@mui/material";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Usuario } from "../../models/IUsuario";
-
-const usuario_dev = {
-  nome: "ADMIN",
-  email: "dev@teste.com",
-};
+import { USUARIO_DEV } from "../../_mocks/usuario";
 
 export default function AccountDetailModal() {
-  const [usuario, setUsuario] = useState<Usuario>({ nome: "", email: "" });
+  const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [openModal, setOpenModal] = useState<HTMLElement | null>(null);
 
-  useEffect(() => {
-    setUsuario(usuario_dev);
+  const handleGetData = useCallback(async () => {
+    setUsuario(USUARIO_DEV);
   }, []);
 
   const handleOpen = (event: any) => {
@@ -44,6 +40,10 @@ export default function AccountDetailModal() {
     }
   };
 
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
+
   return (
     <>
       <Avatar
@@ -65,9 +65,9 @@ export default function AccountDetailModal() {
         PaperProps={{ sx: { width: "300px" } }}
       >
         <Box sx={{ py: 1.5, px: 2 }}>
-          <Typography variant="overline">{usuario.nome}</Typography>
+          <Typography variant="overline">{usuario?.nome}</Typography>
           <Typography color="text.secondary" variant="body2">
-            {usuario.email}
+            {usuario?.email}
           </Typography>
         </Box>
         <MenuList
