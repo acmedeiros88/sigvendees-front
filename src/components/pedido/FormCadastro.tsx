@@ -49,8 +49,8 @@ export const FormCadastro = () => {
         <InputData
           name_id="qtdProdutoSelecionadoPedido"
           descLabel="Quantidade"
-          type="numeric"
-          patternNumber="[0-9]*"
+          type="number"
+          input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
           col_xs={3}
           col_md={3}
           col_lg={2}
@@ -58,8 +58,8 @@ export const FormCadastro = () => {
         <InputDataAdornments
           name_id="vlrUntProdutoSelecionadoPedido"
           descLabel="Valor unitário"
-          type="numeric"
-          patternNumber="[0-9]*"
+          type="number"
+          input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }
@@ -70,8 +70,8 @@ export const FormCadastro = () => {
         <InputDataAdornments
           name_id="vlrDescontoProdutoSelecionadoPedido"
           descLabel="Desconto"
-          type="numeric"
-          patternNumber="[0-9]*"
+          type="number"
+          input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }
@@ -82,8 +82,8 @@ export const FormCadastro = () => {
         <InputDataAdornments
           name_id="vlrTotalProdutoSelecionadoPedido"
           descLabel="Total"
-          type="numeric"
-          patternNumber="[0-9]*"
+          type="number"
+          input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }

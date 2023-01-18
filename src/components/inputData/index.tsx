@@ -26,11 +26,12 @@ interface InputProps {
   col_lg: number;
   col_xl?: number;
   read_only?: boolean;
+  disabled?: boolean;
 }
 
 interface InputDataProps extends InputProps {
-  type?: "text" | "email" | "tel" | "url" | "numeric" | "decimal";
-  patternNumber?: "[0-9]*";
+  type?: string;
+  input_props?: any;
 }
 
 interface InputDateProps extends InputProps {
@@ -68,13 +69,14 @@ const InputData = (props: InputDataProps) => (
       name={props.name_id}
       label={props.descLabel}
       placeholder={props.descPlaceholder}
+      type={props.type}
+      disabled={props.disabled}
       InputLabelProps={{
         shrink: true,
       }}
       inputProps={{
-        inputMode: props.type,
-        pattern: props.patternNumber,
         readOnly: props.read_only,
+        ...props.input_props,
       }}
     />
   </Grid>
@@ -150,13 +152,11 @@ const InputDataAdornments = (props: InputDataAdornmentsProps) => (
         name={props.name_id}
         label={props.descLabel}
         placeholder={props.descPlaceholder}
+        type={props.type}
         startAdornment={props.positionStartAdornment}
         endAdornment={props.positionEndAdornment}
         readOnly={props.read_only}
-        inputProps={{
-          inputMode: props.type,
-          pattern: props.patternNumber,
-        }}
+        inputProps={{ ...props.input_props }}
       />
     </FormControl>
   </Grid>
