@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, InputAdornment } from "@mui/material";
+import { Box, InputAdornment, TableRow, TableCell } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
   InputData,
@@ -7,10 +7,12 @@ import {
   InputSelect,
   ButtonContained,
   InputDataAdornments,
+  ButtonsSubmitCancel,
 } from "../inputData";
-import { PRODUTOS_DEV } from "../../_mocks/produtos";
+import TableProdutos from "./TableProdutos";
+import { PRODUTOS_SELECT, PRODUTOS_PEDIDO } from "../../__mocks/produtos";
 
-export const FormCadastro = () => {
+const FormCadastro = () => {
   const [dataEntrega, setDataEntrega] = useState<Date | null>(null);
 
   const handleChangeData = (newValue: Date | null) => {
@@ -25,23 +27,23 @@ export const FormCadastro = () => {
           name_id="identificacaoClientePedido"
           descLabel="Cliente"
           descPlaceholder="Digite o nome ou telefone"
-          col_xs={8}
-          col_md={8}
-          col_lg={10}
+          col_xs={12}
+          col_md={12}
+          col_lg={9}
         />
         <InputDate
           name_id="dataEntregaPedido"
           descLabel="Entrega"
           value={dataEntrega}
           handleChange={handleChangeData}
-          col_xs={4}
-          col_md={4}
-          col_lg={2}
+          col_xs={12}
+          col_md={12}
+          col_lg={3}
         />
         <InputSelect
           name_id="listaProdutosPedido"
           descLabel="Produto"
-          options={PRODUTOS_DEV}
+          options={PRODUTOS_SELECT}
           col_xs={12}
           col_md={12}
           col_lg={12}
@@ -51,8 +53,8 @@ export const FormCadastro = () => {
           descLabel="Quantidade"
           type="number"
           input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
-          col_xs={3}
-          col_md={3}
+          col_xs={6}
+          col_md={6}
           col_lg={2}
         />
         <InputDataAdornments
@@ -63,8 +65,8 @@ export const FormCadastro = () => {
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }
-          col_xs={3}
-          col_md={3}
+          col_xs={6}
+          col_md={6}
           col_lg={3}
         />
         <InputDataAdornments
@@ -75,8 +77,8 @@ export const FormCadastro = () => {
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }
-          col_xs={3}
-          col_md={3}
+          col_xs={6}
+          col_md={6}
           col_lg={2}
         />
         <InputDataAdornments
@@ -87,8 +89,8 @@ export const FormCadastro = () => {
           positionStartAdornment={
             <InputAdornment position="start">R$</InputAdornment>
           }
-          col_xs={3}
-          col_md={3}
+          col_xs={6}
+          col_md={6}
           col_lg={3}
         />
         <ButtonContained
@@ -99,7 +101,13 @@ export const FormCadastro = () => {
           col_md={12}
           col_lg={2}
         />
+        <Grid xs={12} md={12} lg={12}>
+          <TableProdutos rows={PRODUTOS_PEDIDO} />
+        </Grid>
+        <ButtonsSubmitCancel />
       </Grid>
     </Box>
   );
 };
+
+export default FormCadastro;

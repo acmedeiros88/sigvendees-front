@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Usuario } from "../../models/IUsuario";
-import { USUARIO_DEV } from "../../_mocks/usuario";
+import { USUARIO_DEV } from "../../__mocks/usuario";
 
 export default function AccountDetailModal() {
   const [usuario, setUsuario] = useState<Usuario | null>(null);

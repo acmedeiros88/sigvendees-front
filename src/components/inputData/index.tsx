@@ -175,15 +175,17 @@ const ButtonContained = (props: ButtonContainedProps) => (
   </Grid>
 );
 
-const ButtonSubmitCancel = (props: ButtonSubmitCancelProps) => (
-  <Stack spacing={2} direction="row">
-    <Button id={props.idSalvar} variant="contained">
-      Salvar
-    </Button>
-    <Button id={props.idCancelar} variant="contained">
-      Cancelar
-    </Button>
-  </Stack>
+const ButtonsSubmitCancel = (props: ButtonSubmitCancelProps) => (
+  <Grid>
+    <Stack spacing={2} direction="row">
+      <Button id={props.idSalvar} variant="contained">
+        Salvar
+      </Button>
+      <Button id={props.idCancelar} variant="contained">
+        Cancelar
+      </Button>
+    </Stack>
+  </Grid>
 );
 
 export {
@@ -191,7 +193,7 @@ export {
   InputDate,
   InputSelect,
   InputTextarea,
-  ButtonSubmitCancel,
+  ButtonsSubmitCancel,
   ButtonContained,
   InputDataAdornments,
 };

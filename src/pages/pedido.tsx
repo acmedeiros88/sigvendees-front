@@ -6,7 +6,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Layout from "../components/layout";
-import { FormCadastro } from "../components/pedido/FormCadastro";
+import FormCadastro from "../components/pedido/FormCadastro";
 
 const Page: NextPageWithLayout = () => {
   const [value, setValue] = useState<string>("0");

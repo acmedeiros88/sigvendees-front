@@ -16,7 +16,7 @@ import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Notificacao } from "../../models/INotificacao";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
-import { NOTIFICACOES_DEV } from "../../_mocks/notificacoes";
+import { NOTIFICACOES_DEV } from "../../__mocks/notificacoes";
 
 export default function NotificationModal() {
   const [open, setOpen] = useState<HTMLElement | null>(null);
