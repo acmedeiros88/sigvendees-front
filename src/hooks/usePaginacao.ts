@@ -5,8 +5,8 @@ export default function usePaginacao(
   n_linhaPorPagina: number,
   dados: any[]
 ) {
-  const [page, setPage] = useState(n_pagina);
-  const [rowsPerPage, setRowsPerPage] = useState(n_linhaPorPagina);
+  const [page, setPage] = useState<number>(n_pagina);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(n_linhaPorPagina);
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - dados.length) : 0;
 

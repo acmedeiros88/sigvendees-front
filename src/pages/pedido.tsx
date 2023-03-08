@@ -7,6 +7,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Layout from "../components/layout";
 import FormCadastro from "../components/pedido/FormCadastro";
+import { DataTable as TablePedidosCadastrados } from "../components/table/DataTable";
 
 const Page: NextPageWithLayout = () => {
   const [value, setValue] = useState<string>("0");
@@ -43,7 +44,9 @@ const Page: NextPageWithLayout = () => {
           <TabPanel value="0">
             <FormCadastro />
           </TabPanel>
-          <TabPanel value="1">Tabela com pedidos cadastrados</TabPanel>
+          <TabPanel value="1">
+            <TablePedidosCadastrados />
+          </TabPanel>
         </TabContext>
       </Box>
     </Contents>

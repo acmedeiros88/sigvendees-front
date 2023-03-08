@@ -11,7 +11,7 @@ import {
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import usePaginacao from "../../hooks/usePaginacao";
-import Pagination from "../table/Pagination";
+import CustomTablePagination from "../table/CustomTablePagination";
 import StyledTableCell from "../table/StyledTableCell";
 
 const TableProdutos = ({ rows }: { rows: any[] }) => {
@@ -76,7 +76,7 @@ const TableProdutos = ({ rows }: { rows: any[] }) => {
         </TableBody>
         <TableFooter>
           {rows.length > 5 && (
-            <Pagination
+            <CustomTablePagination
               dados={rows}
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={7}

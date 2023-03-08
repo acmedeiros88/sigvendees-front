@@ -11,7 +11,7 @@ interface PaginationProps {
   onRowsPerPageChange(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-const Pagination = (props: PaginationProps) => {
+const CustomTablePagination = (props: PaginationProps) => {
   return (
     <TableRow>
       <TablePagination
@@ -28,4 +28,4 @@ const Pagination = (props: PaginationProps) => {
   );
 };
 
-export default Pagination;
+export default CustomTablePagination;

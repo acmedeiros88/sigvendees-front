@@ -7,7 +7,10 @@ import Head from "next/head";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { ptBR as ptBR_MUI } from "@mui/material/locale";
-import { ptBR } from "date-fns/locale";
+import { ptBR as ptBR_DATE_FNS } from "date-fns/locale";
+import { ptBR as ptBR_DATA_GRID } from '@mui/x-data-grid';
+import { ptBR as pickersPtBR } from '@mui/x-date-pickers';
+import { ptBR as corePtBR } from '@mui/material/locale';
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { lightOptions, darkOptions } from "../theme";
@@ -48,7 +51,7 @@ export default function App(props: AppPropsWithLayout) {
   );
 
   const theme = useMemo(
-    () => createTheme(getActiveTheme(mode), ptBR_MUI),
+    () => createTheme(getActiveTheme(mode), ptBR_MUI, ptBR_DATA_GRID, pickersPtBR, corePtBR),
     [mode]
   );
 
@@ -59,7 +62,7 @@ export default function App(props: AppPropsWithLayout) {
           <title>SIGVENDEES</title>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ptBR}>
+        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ptBR_DATE_FNS}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             {getLayout(<Component {...pageProps} />)}
