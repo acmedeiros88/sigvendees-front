@@ -1,11 +1,13 @@
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
-import { Box, Container as Contents, Divider, Typography } from "@mui/material";
+// MUI CORE
+import { Box, Container, Divider, Typography } from "@mui/material";
+// COMPONENTS
 import Layout from "../components/layout";
 
 const Page: NextPageWithLayout = () => {
   return (
-    <Contents maxWidth={false}>
+    <Container maxWidth={false}>
       <Box>
         <Typography
           variant="h4"
@@ -20,7 +22,7 @@ const Page: NextPageWithLayout = () => {
         </Typography>
         <Divider />
       </Box>
-    </Contents>
+    </Container>
   );
 };
 

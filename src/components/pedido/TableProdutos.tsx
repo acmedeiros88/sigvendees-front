@@ -1,3 +1,4 @@
+// MUI CORE
 import {
   Paper,
   Table,
@@ -8,9 +9,12 @@ import {
   TableCell,
   TableFooter,
 } from "@mui/material";
+// ICONS
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+// HOOKS
 import usePaginacao from "../../hooks/usePaginacao";
+// COMPONENTS
 import CustomTablePagination from "../table/CustomTablePagination";
 import StyledTableCell from "../table/StyledTableCell";
 

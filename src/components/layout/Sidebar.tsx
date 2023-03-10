@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+// MUI CORE
 import { Box, Divider, Drawer, Typography, useMediaQuery } from "@mui/material";
+// COMPONENTS
 import NavItem from "./NavItem";
 import ROTAS from "../../Rotas";
 

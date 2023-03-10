@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Router from "next/router";
+// MUI CORE
 import {
   Box,
   Popover,
@@ -8,8 +9,11 @@ import {
   Typography,
   Avatar,
 } from "@mui/material";
+// ICONS
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+// INTERFACE
 import { Usuario } from "../../models/IUsuario";
+// MOCKS
 import { USUARIO_DEV } from "../../__mocks/usuario";
 
 export default function AccountDetailModal() {

@@ -1,6 +1,8 @@
 import { useState } from "react";
+// MUI CORE
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
+// COMPONENTS
 import NavbarHeader from "./NavbarHeader";
 import Sidebar from "./Sidebar";
 

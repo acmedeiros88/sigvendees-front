@@ -1,22 +1,19 @@
-import { useState } from "react";
-import {
-  Box,
-  InputBase,
-  Typography,
-  NativeSelect,
-  Pagination,
-  Stack,
-  styled,
-} from "@mui/material";
+// MUI X
 import {
   DataGrid,
   GridColDef,
   gridPageCountSelector,
-  gridPageSelector,
+  GridPagination,
   GridToolbarQuickFilter,
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
+// MUI CORE
+import {
+  Box,
+  TablePaginationProps,
+  Pagination,
+} from "@mui/material";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -64,18 +61,6 @@ interface DataTableProps {
   rows: any[];
 }
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  "& .MuiInputBase-input": {
-    position: "relative",
-    fontSize: 14,
-    padding: "0px 30px 0px 10px",
-    "&:focus": {
-      borderRadius: 4,
-      backgroundColor: theme.palette.action.focus,
-    },
-  },
-}));
-
 function QuickSearchToolbar() {
   return (
     <Box
@@ -89,63 +74,58 @@ function QuickSearchToolbar() {
   );
 }
 
-function CustomPagination() {
+function MuiPagination({
+  page,
+  onPageChange,
+  className,
+}: Pick<TablePaginationProps, "page" | "onPageChange" | "className">) {
   const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-  const [rowsPerPage, setRowsPerPage] = useState<number>(5);
-
-  const handleChange = (event: { target: { value: string } }) => {
-    setRowsPerPage(+event.target.value);
-    apiRef.current.setPageSize(+event.target.value);
-    apiRef.current.setPage(0);
-  };
 
   return (
-    <Stack direction="row" spacing={0.5}>
-      <Typography variant="inherit" sx={{ alignSelf: "center" }}>
-        Linhas por página:
-      </Typography>
-      <NativeSelect
-        value={rowsPerPage}
-        onChange={handleChange}
-        input={<BootstrapInput />}
-      >
-        <option value={5}>5</option>
-        <option value={10}>10</option>
-        <option value={25}>25</option>
-        <option value={50}>50</option>
-        <option value={100}>100</option>
-      </NativeSelect>
-      <Pagination
-        shape="rounded"
-        color="secondary"
-        count={pageCount}
-        page={page + 1}
-        onChange={(event, value) => apiRef.current.setPage(value - 1)}
-        sx={{ pl: 5 }}
-      />
-    </Stack>
+    <Pagination
+      shape="rounded"
+      color="secondary"
+      size="small"
+      className={className}
+      showFirstButton
+      showLastButton
+      count={pageCount}
+      page={page + 1}
+      onChange={(event, newPage) => {
+        onPageChange(event as any, newPage - 1);
+      }}
+    />
   );
 }
 
+function CustomPagination(props: any) {
+  return <GridPagination ActionsComponent={MuiPagination} {...props} />;
+}
+
 export const DataTable = () => {
-  const [pageSize, setPageSize] = useState<number>(5);
 
   return (
-    <Box sx={{ height: 500, width: 1 }}>
+    <Box sx={{ height: 750, width: 1 }}>
       <DataGrid
+        pagination
+        disableRowSelectionOnClick
+        disableColumnFilter
         columns={columns}
         rows={rows}
-        pageSize={pageSize}
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-        components={{
-          Toolbar: QuickSearchToolbar,
-          Pagination: CustomPagination,
+        pageSizeOptions={[10, 20, 50, 100]}
+        getEstimatedRowHeight={() => 52}
+        getRowHeight={() => "auto"}
+        slots={{
+          toolbar: QuickSearchToolbar,
+          pagination: CustomPagination,
         }}
-        pagination
-        disableSelectionOnClick
-        disableColumnFilter
+        initialState={{
+          pagination: { paginationModel: { pageSize: 10 } },
+        }}
+        sx={{
+          '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': { py: '15px' }
+        }}
       />
     </Box>
   );

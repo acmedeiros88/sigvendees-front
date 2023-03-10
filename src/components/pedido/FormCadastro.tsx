@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Box, InputAdornment, TableRow, TableCell } from "@mui/material";
+// MUI CORE
 import Grid from "@mui/material/Unstable_Grid2";
+import { Box, InputAdornment } from "@mui/material";
+// COMPONENTS
 import {
   InputData,
   InputDate,
@@ -10,7 +12,7 @@ import {
   ButtonsSubmitCancel,
 } from "../inputData";
 import TableProdutos from "./TableProdutos";
-/* ===== DEV ===== */
+// MOCKS
 import { PRODUTOS_SELECT, PRODUTOS_PEDIDO } from "../../__mocks/produtos";
 
 const FormCadastro = () => {
@@ -36,7 +38,7 @@ const FormCadastro = () => {
           name_id="dataEntregaPedido"
           descLabel="Entrega"
           value={dataEntrega}
-          handleChange={handleChangeData}
+          setValue={setDataEntrega}
           col_xs={12}
           col_md={12}
           col_lg={3}

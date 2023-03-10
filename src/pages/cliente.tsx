@@ -1,10 +1,12 @@
 import { ReactElement, useState } from "react";
 import type { NextPageWithLayout } from "./_app";
-import { Container as Contents, Box, Divider, Typography } from "@mui/material";
+// MUI CORE
+import { Container, Box, Divider, Typography } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+// COMPONENTS
 import Layout from "../components/layout";
 
 const Page: NextPageWithLayout = () => {
@@ -15,7 +17,7 @@ const Page: NextPageWithLayout = () => {
   };
 
   return (
-    <Contents maxWidth={false}>
+    <Container maxWidth={false}>
       <Box>
         <Typography
           variant="h4"
@@ -47,7 +49,7 @@ const Page: NextPageWithLayout = () => {
           </TabPanel>
         </TabContext>
       </Box>
-    </Contents>
+    </Container>
   );
 };
 

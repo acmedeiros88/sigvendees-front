@@ -1,6 +1,9 @@
+// MUI CORE
 import styled from "@emotion/styled";
 import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+// ICONS
 import MenuIcon from "@mui/icons-material/Menu";
+// COMPONENTS
 import NotificationModal from "./NotificationsModal";
 import AccountDetailModal from "./AccountDetailModal";
 import ToggleColorModeIcon from "./ToggleColorModeIcon";

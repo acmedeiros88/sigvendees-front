@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { set, sub, formatDistanceToNow } from "date-fns";
+// MUI CORE
 import {
   Box,
   List,
@@ -12,10 +13,12 @@ import {
   ListItemText,
   ListItemButton,
 } from "@mui/material";
+// ICONS
 import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Notificacao } from "../../models/INotificacao";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
+// MOCKS
 import { NOTIFICACOES_DEV } from "../../__mocks/notificacoes";
 
 export default function NotificationModal() {

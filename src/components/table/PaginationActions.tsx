@@ -1,5 +1,7 @@
+// MUI CORE
 import { useTheme } from "@mui/material/styles";
 import { Box, IconButton } from "@mui/material";
+// ICONS
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";

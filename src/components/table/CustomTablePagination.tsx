@@ -1,4 +1,6 @@
+// MUI CORE
 import { TableRow, TablePagination } from "@mui/material";
+// COMPONENTS
 import { TablePaginationActions } from "./PaginationActions";
 
 interface PaginationProps {

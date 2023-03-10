@@ -1,5 +1,7 @@
+// MUI X
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// MUI CORE
 import Grid from "@mui/material/Unstable_Grid2";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import {
   TextField,
   Autocomplete,
@@ -36,7 +38,7 @@ interface InputDataProps extends InputProps {
 
 interface InputDateProps extends InputProps {
   value: Date | null;
-  handleChange(newValue: Date | null): void;
+  setValue(newValue: Date | null): void;
 }
 
 interface InputSelectProps extends InputProps {
@@ -84,19 +86,18 @@ const InputData = (props: InputDataProps) => (
 
 const InputDate = (props: InputDateProps) => (
   <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
-    <DesktopDatePicker
+    <DatePicker
       label={props.descLabel}
-      inputFormat="dd/MM/yyyy"
+      //format="dd/MM/yyyy"
       readOnly={props.read_only}
-      value={props.value}
-      onChange={props.handleChange}
-      InputProps={{
-        id: props.name_id,
-        name: props.name_id,
+      //value={props.value}
+      //onChange={(newValue) => props.setValue(newValue)}
+      slotProps={{
+        textField: {
+          InputLabelProps: { shrink: true },
+          inputProps: { id: props.name_id, name: props.name_id },
+        },
       }}
-      renderInput={(params) => (
-        <TextField {...params} InputLabelProps={{ shrink: true }} />
-      )}
     />
   </Grid>
 );
