@@ -8,6 +8,7 @@ import {
   TableRow,
   TableCell,
   TableFooter,
+  Tooltip,
 } from "@mui/material";
 // ICONS
 import IconButton from "@mui/material/IconButton";
@@ -55,9 +56,11 @@ const TableProdutos = ({ rows }: { rows: any[] }) => {
                 <TableCell>{row.desconto}</TableCell>
                 <TableCell>{row.subTotal}</TableCell>
                 <TableCell>
-                  <IconButton size="small">
-                    <DeleteIcon fontSize="small" />
-                  </IconButton>
+                  <Tooltip title="Deletar">
+                    <IconButton size="small" onClick={() => alert("EXCLUIR LINHA: [" + row.id + "]")}>
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
                 </TableCell>
               </TableRow>
             ))

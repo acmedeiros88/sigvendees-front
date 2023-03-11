@@ -24,6 +24,7 @@ interface InputProps {
   descLabel: string;
   descPlaceholder?: string;
   col_xs: number;
+  col_sm?: number;
   col_md: number;
   col_lg: number;
   col_xl?: number;
@@ -166,11 +167,12 @@ const InputDataAdornments = (props: InputDataAdornmentsProps) => (
 const ButtonContained = (props: ButtonContainedProps) => (
   <Grid
     xs={props.col_xs}
+    sm={props.col_sm}
     md={props.col_md}
     lg={props.col_lg}
     sx={props.container_style}
   >
-    <Button id={props.name_id} sx={props.style} variant="contained">
+    <Button id={props.name_id} sx={props.style} variant="contained" fullWidth>
       {props.descLabel}
     </Button>
   </Grid>

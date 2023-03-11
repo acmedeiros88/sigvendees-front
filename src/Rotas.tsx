@@ -9,9 +9,9 @@ import LayersIcon from '@mui/icons-material/Layers';
 
 const ROTAS = [
     {
-        href: '/pedido',
+        href: '/pedidos',
         icon: (<InsertDriveFileIcon />),
-        title: 'Pedido'
+        title: 'Pedidos'
     },
     {
         href: '/estoque',
@@ -19,29 +19,29 @@ const ROTAS = [
         title: 'Estoque'
     },
     {
-        href: '/venda',
+        href: '/vendas',
         icon: (<ShoppingCartIcon />),
-        title: 'Venda'
+        title: 'Vendas'
     },
     {
-        href: '/cliente',
+        href: '/clientes',
         icon: (<PeopleAltIcon />),
-        title: 'Cliente'
+        title: 'Clientes'
     },
     {
-        href: '/receita',
+        href: '/receitas',
         icon: (<MenuBookRoundedIcon />),
-        title: 'Receita'
+        title: 'Receitas'
     },
     {
-        href: '/historico',
+        href: '/historicos',
         icon: (<BarChartIcon />),
-        title: 'Histórico'
+        title: 'Históricos'
     },
     {
-        href: '/balanco',
+        href: '/balancos',
         icon: (<LayersIcon />),
-        title: 'Balanço'
+        title: 'Balanços'
     }
 ]
 

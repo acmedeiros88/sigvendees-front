@@ -98,10 +98,10 @@ const FormCadastro = () => {
         />
         <ButtonContained
           descLabel="Adicionar"
-          style={{ width: "100%" }}
           container_style={{ alignSelf: "center" }}
           col_xs={12}
-          col_md={12}
+          col_sm={3}
+          col_md={2}
           col_lg={2}
         />
         <Grid xs={12} md={12} lg={12}>
