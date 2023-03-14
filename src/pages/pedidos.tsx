@@ -9,9 +9,8 @@ import TabPanel from "@mui/lab/TabPanel";
 // COMPONENTS
 import Layout from "../components/layout";
 import FormCadastro from "../components/pedidos/FormCadastro";
-import { DataTable as TablePedidosCadastrados } from "../components/table/DataTable";
-// MODELS
-import { COLUMNS } from "../components/pedidos/ColumnDataGrid";
+import { DataTable as GridPedidos } from "../components/table/DataTable";
+import { COLUMNS } from "../components/pedidos/ColumnsDataGrid";
 // MOCKS
 import { ROWS as PedidosCadastrados } from "../__mocks/pedidosDataGrid";
 
@@ -51,7 +50,7 @@ const Page: NextPageWithLayout = () => {
             <FormCadastro />
           </TabPanel>
           <TabPanel value="1">
-            <TablePedidosCadastrados columns={COLUMNS} rows={PedidosCadastrados}/>
+            <GridPedidos columns={COLUMNS} rows={PedidosCadastrados}/>
           </TabPanel>
         </TabContext>
       </Box>

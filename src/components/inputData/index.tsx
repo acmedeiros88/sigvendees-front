@@ -12,9 +12,11 @@ import {
   OutlinedInput,
   SxProps,
   Theme,
+  MenuItem,
+  Typography,
 } from "@mui/material";
 
-type Option = {
+export type Option = {
   readonly label: string;
   readonly value: string | number;
 };
@@ -42,12 +44,16 @@ interface InputDateProps extends InputProps {
   setValue(newValue: Date | null): void;
 }
 
-interface InputSelectProps extends InputProps {
+interface InputAutocompleteProps extends InputProps {
   isLoading?: boolean;
   options: readonly Option[];
 }
 
 interface InputTextareaProps extends InputProps {}
+
+interface InputSelectProps extends InputDataProps {
+  options: readonly Option[];
+}
 
 interface InputDataAdornmentsProps extends InputDataProps {
   positionStartAdornment?: React.ReactNode;
@@ -65,7 +71,7 @@ interface ButtonSubmitCancelProps {
 }
 
 const InputData = (props: InputDataProps) => (
-  <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
     <TextField
       fullWidth
       id={props.name_id}
@@ -103,7 +109,7 @@ const InputDate = (props: InputDateProps) => (
   </Grid>
 );
 
-const InputSelect = (props: InputSelectProps) => (
+const InputAutocomplete = (props: InputAutocompleteProps) => (
   <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
     <Autocomplete
       disablePortal
@@ -144,7 +150,7 @@ const InputTextarea = (props: InputTextareaProps) => (
 );
 
 const InputDataAdornments = (props: InputDataAdornmentsProps) => (
-  <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
     <FormControl fullWidth>
       <InputLabel htmlFor={props.name_id} shrink>
         {props.descLabel}
@@ -161,6 +167,40 @@ const InputDataAdornments = (props: InputDataAdornmentsProps) => (
         inputProps={{ ...props.input_props }}
       />
     </FormControl>
+  </Grid>
+);
+
+const InputSelect = (props: InputSelectProps) => (
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
+    <TextField
+      fullWidth
+      select
+      id={props.name_id}
+      name={props.name_id}
+      label={props.descLabel}
+      disabled={props.disabled}
+      defaultValue={-1}
+      InputLabelProps={{
+        shrink: true,
+      }}
+      inputProps={{
+        readOnly: props.read_only,
+        ...props.input_props,
+      }}
+    >
+      <MenuItem disabled value={-1}>
+        <Typography variant="inherit" color="action.disabled">
+          {props.descPlaceholder != null
+            ? props.descPlaceholder
+            : "Selecionar..."}
+        </Typography>
+      </MenuItem>
+      {props.options.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </TextField>
   </Grid>
 );
 
@@ -194,9 +234,10 @@ const ButtonsSubmitCancel = (props: ButtonSubmitCancelProps) => (
 export {
   InputData,
   InputDate,
-  InputSelect,
+  InputAutocomplete,
   InputTextarea,
   ButtonsSubmitCancel,
   ButtonContained,
   InputDataAdornments,
+  InputSelect
 };

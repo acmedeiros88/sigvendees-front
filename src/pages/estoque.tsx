@@ -8,6 +8,12 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 // COMPONENTS
 import Layout from "../components/layout";
+import FormCadastro from "../components/estoque/FormCadastro";
+import FormEntrada from "../components/estoque/FormEntrada";
+import { DataTable as GridEstoque } from "../components/table/DataTable";
+import { COLUMNS } from "../components/estoque/ColumnsDataGrid";
+// MOCKS
+import { ROWS as EstoqueProdutos } from "../__mocks/estoqueDataGrid";
 
 const Page: NextPageWithLayout = () => {
   const [value, setValue] = useState<string>("0");
@@ -43,17 +49,16 @@ const Page: NextPageWithLayout = () => {
             </TabList>
           </Box>
           <TabPanel value="0">
-            Formulario entrada de ingrediente no estoque
+            <FormEntrada />
           </TabPanel>
           <TabPanel value="1">
-            Formulario cadastro de ingrediente
+            <FormCadastro />
           </TabPanel>
           <TabPanel value="2">
-            Tabela com estoque dos ingredientes
+            <GridEstoque columns={COLUMNS} rows={EstoqueProdutos} />
           </TabPanel>
         </TabContext>
       </Box>
-      
     </Container>
   );
 };

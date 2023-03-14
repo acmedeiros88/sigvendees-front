@@ -1,21 +1,21 @@
 // ICONS
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import LayersIcon from '@mui/icons-material/Layers';
+import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
+import BalanceRoundedIcon from '@mui/icons-material/BalanceRounded';
+import WorkHistoryRoundedIcon from '@mui/icons-material/WorkHistoryRounded';
+import ReceiptRoundedIcon from '@mui/icons-material/ReceiptRounded';
 
 const ROTAS = [
     {
         href: '/pedidos',
-        icon: (<InsertDriveFileIcon />),
+        icon: (<ReceiptRoundedIcon />),
         title: 'Pedidos'
     },
     {
         href: '/estoque',
-        icon: (<FormatListBulletedIcon />),
+        icon: (<Inventory2RoundedIcon />),
         title: 'Estoque'
     },
     {
@@ -35,12 +35,12 @@ const ROTAS = [
     },
     {
         href: '/historicos',
-        icon: (<BarChartIcon />),
+        icon: (<WorkHistoryRoundedIcon />),
         title: 'Históricos'
     },
     {
         href: '/balancos',
-        icon: (<LayersIcon />),
+        icon: (<BalanceRoundedIcon />),
         title: 'Balanços'
     }
 ]

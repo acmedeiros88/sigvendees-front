@@ -6,7 +6,7 @@ import { Box, InputAdornment } from "@mui/material";
 import {
   InputData,
   InputDate,
-  InputSelect,
+  InputAutocomplete,
   ButtonContained,
   InputDataAdornments,
   ButtonsSubmitCancel,
@@ -43,7 +43,7 @@ const FormCadastro = () => {
           col_md={12}
           col_lg={3}
         />
-        <InputSelect
+        <InputAutocomplete
           name_id="listaProdutosPedido"
           descLabel="Produto"
           options={PRODUTOS_SELECT}

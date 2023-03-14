@@ -11,16 +11,19 @@ import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
 
 export const COLUMNS: GridColDef[] = [
-  { field: "id", headerName: "Código",
+  {
+    field: "id",
+    headerName: "Código",
     type: "number",
     width: 70,
     headerAlign: "left",
-    align: "left"
+    align: "left",
   },
-  { field: "nomeCliente",
+  {
+    field: "nomeCliente",
     headerName: "Cliente",
     flex: 1.5,
-    minWidth: 200
+    minWidth: 200,
   },
   {
     field: "dataInsert",
@@ -28,7 +31,7 @@ export const COLUMNS: GridColDef[] = [
     type: "date",
     valueGetter: ({ value }) => value && new Date(value),
     flex: 0.5,
-    minWidth: 100
+    minWidth: 100,
   },
   {
     field: "dataEntrega",
@@ -36,12 +39,13 @@ export const COLUMNS: GridColDef[] = [
     type: "date",
     valueGetter: ({ value }) => value && new Date(value),
     flex: 0.5,
-    minWidth: 100
+    minWidth: 100,
   },
-  { field: "status",
+  {
+    field: "status",
     headerName: "Status",
     flex: 1,
-    minWidth: 145
+    minWidth: 145,
   },
   {
     field: "actions",
