@@ -14,12 +14,12 @@ import {
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 // HOOKS
-import usePaginacao from "../../hooks/usePaginacao";
+import usePaginacao from "../../../hooks/usePaginacao";
 // COMPONENTS
-import CustomTablePagination from "../table/CustomTablePagination";
-import StyledTableCell from "../table/StyledTableCell";
+import CustomTablePagination from "../../table/CustomTablePagination";
+import StyledTableCell from "../../table/StyledTableCell";
 
-const TableProdutos = ({ rows }: { rows: any[] }) => {
+const TableItens = ({ rows }: { rows: any[] }) => {
   const {
     page,
     rowsPerPage,
@@ -56,7 +56,7 @@ const TableProdutos = ({ rows }: { rows: any[] }) => {
                 <TableCell>{row.desconto}</TableCell>
                 <TableCell>{row.subTotal}</TableCell>
                 <TableCell>
-                  <Tooltip title="Deletar">
+                  <Tooltip title="Deletar" arrow>
                     <IconButton size="small" onClick={() => alert("EXCLUIR LINHA: [" + row.id + "]")}>
                       <DeleteIcon fontSize="small" />
                     </IconButton>
@@ -99,4 +99,4 @@ const TableProdutos = ({ rows }: { rows: any[] }) => {
   );
 };
 
-export default TableProdutos;
+export default TableItens;

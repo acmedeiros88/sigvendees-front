@@ -58,7 +58,7 @@ export const COLUMNS: GridColDef[] = [
         key={params.id}
         label="Itens"
         icon={
-          <Tooltip title="Itens do Pedido">
+          <Tooltip title="Itens do Pedido" arrow>
             <FormatListBulletedRoundedIcon />
           </Tooltip>
         }
@@ -68,7 +68,7 @@ export const COLUMNS: GridColDef[] = [
         key={params.id}
         label="Pronto"
         icon={
-          <Tooltip title="Marcar como pronto">
+          <Tooltip title="Marcar como pronto" arrow>
             <TaskAltRoundedIcon />
           </Tooltip>
         }
@@ -78,7 +78,7 @@ export const COLUMNS: GridColDef[] = [
         key={params.id}
         label="Venda"
         icon={
-          <Tooltip title="Finalizar venda">
+          <Tooltip title="Finalizar venda" arrow>
             <ShoppingCartCheckoutRoundedIcon />
           </Tooltip>
         }

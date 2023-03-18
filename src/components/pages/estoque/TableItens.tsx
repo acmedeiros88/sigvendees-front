@@ -14,12 +14,12 @@ import {
   import IconButton from "@mui/material/IconButton";
   import DeleteIcon from "@mui/icons-material/Delete";
   // HOOKS
-  import usePaginacao from "../../hooks/usePaginacao";
+  import usePaginacao from "../../../hooks/usePaginacao";
   // COMPONENTS
-  import CustomTablePagination from "../table/CustomTablePagination";
-  import StyledTableCell from "../table/StyledTableCell";
+  import CustomTablePagination from "../../table/CustomTablePagination";
+  import StyledTableCell from "../../table/StyledTableCell";
   
-  const TableProdutos = ({ rows }: { rows: any[] }) => {
+  const TableItens = ({ rows }: { rows: any[] }) => {
     const {
       page,
       rowsPerPage,
@@ -52,7 +52,7 @@ import {
                   <TableCell>{row.qtd}</TableCell>
                   <TableCell>{row.custo}</TableCell>
                   <TableCell>
-                    <Tooltip title="Deletar">
+                    <Tooltip title="Deletar" arrow>
                       <IconButton size="small" onClick={() => alert("EXCLUIR LINHA: [" + row.id + "]")}>
                         <DeleteIcon fontSize="small" />
                       </IconButton>
@@ -95,5 +95,5 @@ import {
     );
   };
   
-  export default TableProdutos;
+  export default TableItens;
   

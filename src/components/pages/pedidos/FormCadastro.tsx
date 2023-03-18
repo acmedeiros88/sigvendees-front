@@ -10,10 +10,10 @@ import {
   ButtonContained,
   InputDataAdornments,
   ButtonsSubmitCancel,
-} from "../inputData";
-import TableProdutos from "./TableProdutos";
+} from "../../inputData";
+import TableItens from "./TableItens";
 // MOCKS
-import { PRODUTOS_SELECT, PRODUTOS_PEDIDO } from "../../__mocks/produtos";
+import { PRODUTOS_SELECT, PRODUTOS_PEDIDO } from "../../../__mocks/produtos";
 
 const FormCadastro = () => {
   const [dataEntrega, setDataEntrega] = useState<Date | null>(null);
@@ -105,7 +105,7 @@ const FormCadastro = () => {
           col_lg={2}
         />
         <Grid xs={12} md={12} lg={12}>
-          <TableProdutos rows={PRODUTOS_PEDIDO} />
+          <TableItens rows={PRODUTOS_PEDIDO} />
         </Grid>
         <ButtonsSubmitCancel />
       </Grid>

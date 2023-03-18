@@ -8,9 +8,9 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 // COMPONENTS
 import Layout from "../components/layout";
-import FormCadastro from "../components/pedidos/FormCadastro";
+import FormCadastro from "../components/pages/pedidos/FormCadastro";
 import { DataTable as GridPedidos } from "../components/table/DataTable";
-import { COLUMNS } from "../components/pedidos/ColumnsDataGrid";
+import { COLUMNS } from "../components/pages/pedidos/ColumnsDataGrid";
 // MOCKS
 import { ROWS as PedidosCadastrados } from "../__mocks/pedidosDataGrid";
 

@@ -8,10 +8,10 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 // COMPONENTS
 import Layout from "../components/layout";
-import FormCadastro from "../components/estoque/FormCadastro";
-import FormEntrada from "../components/estoque/FormEntrada";
+import FormCadastro from "../components/pages/estoque/FormCadastro";
+import FormEntrada from "../components/pages/estoque/FormEntrada";
 import { DataTable as GridEstoque } from "../components/table/DataTable";
-import { COLUMNS } from "../components/estoque/ColumnsDataGrid";
+import { COLUMNS } from "../components/pages/estoque/ColumnsDataGrid";
 // MOCKS
 import { ROWS as EstoqueProdutos } from "../__mocks/estoqueDataGrid";
 

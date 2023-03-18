@@ -8,10 +8,10 @@ import {
   ButtonContained,
   ButtonsSubmitCancel,
   InputDataAdornments,
-} from "../inputData";
-import TableProdutos from "./TableProdutos";
+} from "../../inputData";
+import TableItens from "./TableItens";
 // MOCKS
-import { PRODUTOS_SELECT, PRODUTOS_PEDIDO as PRODUTOS } from "../../__mocks/produtos";
+import { PRODUTOS_SELECT, PRODUTOS_PEDIDO as PRODUTOS } from "../../../__mocks/produtos";
 
 const FormEntrada = () => {
   return (
@@ -57,7 +57,7 @@ const FormEntrada = () => {
           col_lg={2}
         />
         <Grid xs={12} md={12} lg={12}>
-          <TableProdutos rows={PRODUTOS} />
+          <TableItens rows={PRODUTOS} />
         </Grid>
         <ButtonsSubmitCancel />
       </Grid>

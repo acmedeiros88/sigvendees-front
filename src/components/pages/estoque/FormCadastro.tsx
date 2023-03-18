@@ -7,7 +7,7 @@ import {
   InputSelect,
   ButtonsSubmitCancel,
   Option,
-} from "../inputData";
+} from "../../inputData";
 
 const OptionTipoProduto: Array<Option> = [
   { value: 0, label: "INGREDIENTE" },
