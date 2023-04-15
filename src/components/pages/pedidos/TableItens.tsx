@@ -1,4 +1,4 @@
-// MUI CORE
+// MATERIAL UI
 import {
   Paper,
   Table,

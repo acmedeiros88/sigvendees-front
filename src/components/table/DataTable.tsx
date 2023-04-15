@@ -11,7 +11,7 @@ import {
   GridRow,
   GridColumnHeaders,
 } from "@mui/x-data-grid";
-// MUI CORE
+// MATERIAL UI
 import { Box, TablePaginationProps, Pagination } from "@mui/material";
 
 interface DataTableProps {
@@ -70,12 +70,9 @@ export const DataTable = (props: DataTableProps) => {
       <DataGrid
         pagination
         disableRowSelectionOnClick
-        //disableColumnFilter
         columns={props.columns}
         rows={props.rows}
         pageSizeOptions={[10, 20, 50, 100]}
-        getEstimatedRowHeight={() => 52}
-        getRowHeight={() => "auto"}
         slots={{
           toolbar: QuickSearchToolbar,
           pagination: CustomPagination,
@@ -85,6 +82,8 @@ export const DataTable = (props: DataTableProps) => {
         initialState={{
           pagination: { paginationModel: { pageSize: 10 } },
         }}
+        getEstimatedRowHeight={() => 52}
+        getRowHeight={() => "auto"}
         sx={{
           "&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell": { py: "5px" }
         }}

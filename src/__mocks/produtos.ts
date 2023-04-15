@@ -1,16 +1,11 @@
-export const PRODUTOS_SELECT = [
-  { label: "Bolo chocolate", value: 0 },
-  { label: "Brigadeiro", value: 1 },
-  { label: "Copo da felicidade", value: 2 },
-  { label: "Barra de chocolate", value: 3 },
-  { label: "Panetone", value: 4 },
-];
 
-
-export const PRODUTOS_PEDIDO: Array<any> = [
+export const ROWS = [
   {
     id: 1,
-    desc: "Bolo chocolate",
+    nome: "Bolo chocolate",
+    tipo: "DOCE",
+    venda_em: "G",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -18,7 +13,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 2,
-    desc: "Brigadeiro",
+    nome: "Brigadeiro",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -26,7 +24,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 3,
-    desc: "Copo da felicidade",
+    nome: "Copo da felicidade",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 159,
     custo: 6.0,
     desconto: 0,
@@ -34,7 +35,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 4,
-    desc: "Brigadeiro",
+    nome: "Brigadeiro",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -42,7 +46,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 5,
-    desc: "Doce",
+    nome: "Doce",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -50,7 +57,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 6,
-    desc: "Bolo chocolate",
+    nome: "Bolo chocolate",
+    tipo: "DOCE",
+    venda_em: "G",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -58,7 +68,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 7,
-    desc: "Brigadeiro",
+    nome: "Brigadeiro",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -66,7 +79,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 8,
-    desc: "Copo da felicidade",
+    nome: "Copo da felicidade",
+    tipo: "DOCE",
+    venda_em: "UND",
+    vlr_venda: 10,
     qtd: 159,
     custo: 6.0,
     desconto: 0,
@@ -74,7 +90,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 9,
-    desc: "Brigadeiro",
+    nome: "Brigadeiro",
+    tipo: "DOCE",
+    venda_em: "CENTO",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,
@@ -82,7 +101,10 @@ export const PRODUTOS_PEDIDO: Array<any> = [
   },
   {
     id: 10,
-    desc: "Doce10",
+    nome: "Salgado",
+    tipo: "SALGADO",
+    venda_em: "CENTO",
+    vlr_venda: 10,
     qtd: 5,
     custo: 6.0,
     desconto: 0,

@@ -1,0 +1,42 @@
+export const ROWS = [
+    {
+        id: 1,
+        nome: "TIAGO PALHARES SANTOS",
+        email: "tps@teste.com",
+        telefone: "93828554164",
+        endereco: "Rua abc, 123",
+        observacao: "cliente 01",
+    },
+    {
+        id: 2,
+        nome: "JAQUELINE DAIANE ALMADA",
+        email: "jaq@teste.com",
+        telefone: "32156496876",
+        endereco: "Rua abc, 123",
+        observacao: "",
+    },
+    {
+        id: 3,
+        nome: "WILSON NETO",
+        email: "wilson@teste.com",
+        telefone: "90998268933",
+        endereco: "Rua abc, 123",
+        observacao: "cliente 03",
+    },
+    {
+        id: 4,
+        nome: "JULIANO MEDEIROS",
+        email: "ju@teste.com",
+        telefone: "90998268933",
+        endereco: "Rua abc, 123",
+        observacao: "cliente 04",
+    },
+    {
+        id: 5,
+        nome: "TATIANA PEREIRA",
+        email: "tati@teste.com",
+        telefone: "90998268933",
+        endereco: "Rua abc, 123",
+        observacao: "cliente 05",
+    },
+];

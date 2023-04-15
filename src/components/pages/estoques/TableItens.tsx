@@ -1,4 +1,4 @@
-// MUI CORE
+// MATERIAL UI
 import {
     Paper,
     Table,
@@ -48,7 +48,7 @@ import {
               ).map((row) => (
                 <TableRow hover key={row.id}>
                   <TableCell>{row.id}</TableCell>
-                  <TableCell>{row.desc}</TableCell>
+                  <TableCell>{row.nome}</TableCell>
                   <TableCell>{row.qtd}</TableCell>
                   <TableCell>{row.custo}</TableCell>
                   <TableCell>

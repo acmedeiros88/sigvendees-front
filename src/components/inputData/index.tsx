@@ -1,6 +1,10 @@
 // MUI X
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// MUI CORE
+import {
+  DatePicker,
+  DateTimePicker,
+  MobileDateTimePicker,
+} from "@mui/x-date-pickers";
+// MATERIAL UI
 import Grid from "@mui/material/Unstable_Grid2";
 import {
   TextField,
@@ -14,6 +18,8 @@ import {
   Theme,
   MenuItem,
   Typography,
+  CircularProgress,
+  Box,
 } from "@mui/material";
 
 export type Option = {
@@ -23,15 +29,19 @@ export type Option = {
 
 interface InputProps {
   name_id?: string;
-  descLabel: string;
+  descLabel?: string;
   descPlaceholder?: string;
-  col_xs: number;
+  col_xs?: number;
   col_sm?: number;
-  col_md: number;
-  col_lg: number;
+  col_md?: number;
+  col_lg?: number;
   col_xl?: number;
   read_only?: boolean;
   disabled?: boolean;
+  value?: any;
+  error?: boolean;
+  helperText?: React.ReactNode;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
 }
 
 interface InputDataProps extends InputProps {
@@ -40,16 +50,20 @@ interface InputDataProps extends InputProps {
 }
 
 interface InputDateProps extends InputProps {
-  value: Date | null;
-  setValue(newValue: Date | null): void;
+  date?: Date | null;
+  setDate?(newValue: Date | null): void;
 }
 
 interface InputAutocompleteProps extends InputProps {
   isLoading?: boolean;
-  options: readonly Option[];
+  multiple?: boolean;
+  options: readonly any[];
+  getOptionLabel?: (option: any) => string;
 }
 
-interface InputTextareaProps extends InputProps {}
+interface InputTextareaProps extends InputProps {
+  qtd_row?: number;
+}
 
 interface InputSelectProps extends InputDataProps {
   options: readonly Option[];
@@ -63,11 +77,21 @@ interface InputDataAdornmentsProps extends InputDataProps {
 interface ButtonContainedProps extends InputProps {
   style?: SxProps<Theme>;
   container_style?: SxProps<Theme>;
+  component?: any;
+  href?: string;
+  startIcon?: React.ReactNode;
+  disabled?: boolean;
+  onClick?: any;
+  loading?: boolean;
 }
 
-interface ButtonSubmitCancelProps {
+interface ButtonSubmitCancelProps extends ButtonContainedProps {
   idSalvar?: string;
   idCancelar?: string;
+  descOK?: string;
+  startIconCancelar?: React.ReactNode;
+  disabledCancelar?: boolean;
+  onClickCancelar?: any;
 }
 
 const InputData = (props: InputDataProps) => (
@@ -80,6 +104,10 @@ const InputData = (props: InputDataProps) => (
       placeholder={props.descPlaceholder}
       type={props.type}
       disabled={props.disabled}
+      value={props.value}
+      onChange={props.onChange}
+      error={props.error}
+      helperText={props.helperText}
       InputLabelProps={{
         shrink: true,
       }}
@@ -92,7 +120,13 @@ const InputData = (props: InputDataProps) => (
 );
 
 const InputDate = (props: InputDateProps) => (
-  <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
+  <Grid
+    xs={props.col_xs}
+    sm={props.col_sm}
+    md={props.col_md}
+    lg={props.col_lg}
+    xl={props.col_xl}
+  >
     <DatePicker
       label={props.descLabel}
       //format="dd/MM/yyyy"
@@ -109,22 +143,57 @@ const InputDate = (props: InputDateProps) => (
   </Grid>
 );
 
+const InputDateTime = (props: InputDateProps) => (
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
+    <DateTimePicker
+      label={props.descLabel}
+      //format="dd/MM/yyyy"
+      readOnly={props.read_only}
+      //value={props.value}
+      //onChange={(newValue) => props.setValue(newValue)}
+      slotProps={{
+        textField: {
+          InputLabelProps: { shrink: true },
+          inputProps: { id: props.name_id, name: props.name_id },
+        },
+      }}
+    />
+  </Grid>
+);
+
+const InputMobileDateTime = (props: InputDateProps) => (
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
+    <MobileDateTimePicker
+      label={props.descLabel}
+      //format="dd/MM/yyyy"
+      readOnly={props.read_only}
+      //value={props.value}
+      //onChange={(newValue) => props.setValue(newValue)}
+      slotProps={{
+        textField: {
+          InputLabelProps: { shrink: true },
+          inputProps: { id: props.name_id, name: props.name_id },
+        },
+      }}
+    />
+  </Grid>
+);
+
 const InputAutocomplete = (props: InputAutocompleteProps) => (
-  <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
     <Autocomplete
       disablePortal
+      disabled={props.disabled}
+      multiple={props.multiple}
       id={props.name_id}
       options={props.options}
+      getOptionLabel={props.getOptionLabel}
       loading={props.isLoading}
       renderInput={(params) => (
         <TextField
           {...params}
           label={props.descLabel}
-          placeholder={
-            props.descPlaceholder != null
-              ? props.descPlaceholder
-              : "Selecionar..."
-          }
+          placeholder={props.descPlaceholder ?? "Selecionar..."}
           InputLabelProps={{ shrink: true }}
         />
       )}
@@ -133,7 +202,7 @@ const InputAutocomplete = (props: InputAutocompleteProps) => (
 );
 
 const InputTextarea = (props: InputTextareaProps) => (
-  <Grid xs={props.col_xs} md={props.col_md} lg={props.col_lg}>
+  <Grid xs={props.col_xs} sm={props.col_sm} md={props.col_md} lg={props.col_lg}>
     <TextField
       fullWidth
       multiline
@@ -141,7 +210,7 @@ const InputTextarea = (props: InputTextareaProps) => (
       name={props.name_id}
       label={props.descLabel}
       placeholder={props.descPlaceholder}
-      rows={4}
+      rows={props.qtd_row ?? 4}
       InputLabelProps={{
         shrink: true,
       }}
@@ -180,6 +249,9 @@ const InputSelect = (props: InputSelectProps) => (
       label={props.descLabel}
       disabled={props.disabled}
       defaultValue={-1}
+      value={props.value}
+      onChange={props.onChange}
+      sx={{ textAlign: "start" }}
       InputLabelProps={{
         shrink: true,
       }}
@@ -190,9 +262,7 @@ const InputSelect = (props: InputSelectProps) => (
     >
       <MenuItem disabled value={-1}>
         <Typography variant="inherit" color="action.disabled">
-          {props.descPlaceholder != null
-            ? props.descPlaceholder
-            : "Selecionar..."}
+          {props.descPlaceholder ?? "Selecionar..."}
         </Typography>
       </MenuItem>
       {props.options.map((option) => (
@@ -210,34 +280,71 @@ const ButtonContained = (props: ButtonContainedProps) => (
     sm={props.col_sm}
     md={props.col_md}
     lg={props.col_lg}
+    xl={props.col_xl}
     sx={props.container_style}
   >
-    <Button id={props.name_id} sx={props.style} variant="contained" fullWidth>
+    <Button
+      fullWidth
+      variant="contained"
+      id={props.name_id}
+      component={props.component}
+      href={props.href}
+      startIcon={props.startIcon}
+      disabled={props.disabled}
+      onClick={props.onClick}
+      sx={props.style}
+    >
       {props.descLabel}
     </Button>
   </Grid>
 );
 
 const ButtonsSubmitCancel = (props: ButtonSubmitCancelProps) => (
-  <Grid>
-    <Stack spacing={2} direction="row">
-      <Button id={props.idSalvar} variant="contained">
-        Salvar
+  <Stack spacing={2} direction="row" sx={props.container_style}>
+    <Button
+      fullWidth
+      id={props.idCancelar}
+      variant="outlined"
+      disabled={props.disabledCancelar || props.loading}
+      onClick={props.onClickCancelar}
+    >
+      Cancelar
+    </Button>
+
+    {props.loading ? (
+      <Button fullWidth variant="contained" disabled={true}>
+        <CircularProgress
+          size={24}
+          sx={{
+            position: "absolute",
+          }}
+        />
+        <span>Aguarde...</span>
       </Button>
-      <Button id={props.idCancelar} variant="contained">
-        Cancelar
+    ) : (
+      <Button
+        fullWidth
+        id={props.idSalvar}
+        variant="contained"
+        type="submit"
+        disabled={props.disabled || props.loading}
+        onClick={props.onClick}
+      >
+        {props.descOK ?? "Salvar"}
       </Button>
-    </Stack>
-  </Grid>
+    )}
+  </Stack>
 );
 
 export {
   InputData,
   InputDate,
+  InputDateTime,
+  InputMobileDateTime,
   InputAutocomplete,
   InputTextarea,
   ButtonsSubmitCancel,
   ButtonContained,
   InputDataAdornments,
-  InputSelect
+  InputSelect,
 };

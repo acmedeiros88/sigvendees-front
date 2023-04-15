@@ -1,0 +1,16 @@
+export const messages = {
+    required: "Campo obrigatório",
+    valid: "Valor inválido",
+    validString: "Digite um texto válido",
+    validNumber: "Digite um número válido",
+    length: "Deve ter exatamente ${length} caracteres",
+    ValidMin: "Deve ter no mínimo ${min} caracteres",
+    ValidMax: "Deve ter no máximo ${max} caracteres",
+    ValidEmail: "Formato de e-mail inválido",
+    ValidUrl: "Deve ter um formato de URL válida",
+    ValidTrim: "Não deve conter espaços no início ou no fim.",
+    ValidLowercase: "Deve estar em maiúsculo",
+    ValidUppercase: "Deve estar em minúsculo",
+    notSelected: "Escolha uma opção",
+    validDate: "Digite uma data válida",
+  };

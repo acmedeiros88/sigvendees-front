@@ -1,5 +1,5 @@
 import { useState } from "react";
-// MUI CORE
+// MATERIAL UI
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 // COMPONENTS
@@ -15,7 +15,7 @@ const LayoutRoot = styled("div")(({ theme }: any) => ({
   flex: "1 1 auto",
   maxWidth: "100%",
   paddingTop: 30,
-  [theme.breakpoints.up("lg")]: { paddingLeft: 250 },
+  [theme.breakpoints.up("lg")]: { paddingLeft: 260 },
 }));
 
 export default function Layout(props: LayoutProps) {

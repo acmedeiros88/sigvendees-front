@@ -1,4 +1,4 @@
-// MUI CORE
+// MATERIAL UI
 import { styled } from "@mui/material/styles";
 import { TableCell, tableCellClasses } from "@mui/material";
 

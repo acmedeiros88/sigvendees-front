@@ -1,4 +1,4 @@
-// MUI CORE
+// MATERIAL UI
 import { useTheme } from "@mui/material/styles";
 import { Box, IconButton } from "@mui/material";
 // ICONS

@@ -1,14 +1,19 @@
-// MUI CORE
-import { Tooltip } from "@mui/material";
+import NextLink from "next/link";
+// MATERIAL UI
+import { IconButton, Tooltip, Chip } from "@mui/material";
 // MUI X
 import { GridActionsCellItem, GridColDef } from "@mui/x-data-grid";
 // ICONS
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
-import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import EditIcon from "@mui/icons-material/Edit";
 import ShoppingCartCheckoutRoundedIcon from "@mui/icons-material/ShoppingCartCheckoutRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
+
+function handleDeletClick(id: number) {
+  alert("DELETAR PEDIDO [" + id + "]")
+}
 
 export const COLUMNS: GridColDef[] = [
   {
@@ -45,7 +50,10 @@ export const COLUMNS: GridColDef[] = [
     field: "status",
     headerName: "Status",
     flex: 1,
-    minWidth: 145,
+    minWidth: 150,
+    renderCell: (params) => (
+      <Chip label={params.row.status} size="small" sx={{ minWidth: 150 }} />
+    )
   },
   {
     field: "actions",
@@ -58,7 +66,7 @@ export const COLUMNS: GridColDef[] = [
         key={params.id}
         label="Itens"
         icon={
-          <Tooltip title="Itens do Pedido" arrow>
+          <Tooltip title="Itens" arrow>
             <FormatListBulletedRoundedIcon />
           </Tooltip>
         }
@@ -84,26 +92,37 @@ export const COLUMNS: GridColDef[] = [
         }
         onClick={() => alert("FINALIZAR VENDA PEDIDO: [" + params.id + "]")}
       />,
+      <>
+        <Tooltip title="Editar" arrow>
+          <IconButton
+            LinkComponent={NextLink}
+            href={`pedidos/${params.id}/editar`}
+          >
+            <EditIcon color="info" />
+          </IconButton>
+        </Tooltip>
+      </>,
       <GridActionsCellItem
-        key={params.id}
-        label="Editar"
-        icon={<EditRoundedIcon />}
-        onClick={() => alert("EDITAR PEDIDO: [" + params.id + "]")}
         showInMenu
-      />,
-      <GridActionsCellItem
         key={params.id}
         label="Cancelar"
-        icon={<CancelRoundedIcon />}
+        icon={
+          <Tooltip title="Cancelar" arrow>
+            <CancelRoundedIcon />
+          </Tooltip>
+        }
         onClick={() => alert("CANCELAR PEDIDO: [" + params.id + "]")}
-        showInMenu
       />,
       <GridActionsCellItem
+        showInMenu
         key={params.id}
         label="Deletar"
-        icon={<DeleteRoundedIcon />}
-        onClick={() => alert("DELETAR PEDIDO: [" + params.id + "]")}
-        showInMenu
+        icon={
+          <Tooltip title="Deletar" arrow>
+            <DeleteRoundedIcon color="error" />
+          </Tooltip>
+        }
+        onClick={() => handleDeletClick(Number(params.id))}
       />,
     ],
   },

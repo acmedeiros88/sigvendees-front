@@ -1,4 +1,4 @@
-// MUI CORE
+// MATERIAL UI
 import styled from "@emotion/styled";
 import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
 // ICONS

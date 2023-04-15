@@ -1,7 +1,7 @@
 // MUI X
 import { GridColDef } from "@mui/x-data-grid";
 
-export const COLUMNS: GridColDef[] = [
+const COLUMNS: GridColDef[] = [
   {
     field: "id",
     headerName: "Código",
@@ -41,3 +41,5 @@ export const COLUMNS: GridColDef[] = [
     minWidth: 130
   }
 ];
+
+export default COLUMNS;
