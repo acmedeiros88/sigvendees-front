@@ -9,7 +9,7 @@ export default function AuthFooter() {
         color="rgb(105, 117, 134)"
         fontSize="0.75rem"
       >
-        Todos os direitos reservados.
+        Todos os direitos reservados &copy;acmedeiros.
       </Typography>
     </Stack>
   );
