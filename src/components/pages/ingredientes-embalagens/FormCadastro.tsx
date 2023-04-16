@@ -23,6 +23,7 @@ const OptionUndMedida: Array<Option> = [
   { value: 0, label: "Unidade (und)" },
   { value: 1, label: "Gramas (g)" },
   { value: 2, label: "Mililitros (ml)" },
+  { value: 2, label: "Centímetros (cm)" }
 ];
 
 const FormCadastro = ({ titulo }: { titulo: string }) => {

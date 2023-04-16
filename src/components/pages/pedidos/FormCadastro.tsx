@@ -71,7 +71,7 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
             name_id="listaProdutosPedido"
             descLabel="Produto"
             options={PRODUTOS_PEDIDO}
-            getOptionLabel={(option) => option.desc}
+            getOptionLabel={(option) => option.nome}
             col_xs={12}
             col_md={12}
             col_lg={12}

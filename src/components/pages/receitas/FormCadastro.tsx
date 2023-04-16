@@ -11,7 +11,7 @@ import {
   ButtonContained,
   InputDataAdornments
 } from "../../inputData";
-import TableItens from "./TableItens";
+import TableItens from "../ingredientes-embalagens/TableItens";
 import TitleAndButton from "../../TitleAndButton";
 // ICONS
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
@@ -69,7 +69,7 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
           />
           <InputAutocomplete
             name_id="ingredientes"
-            descLabel="Ingredientes/Embalagens"
+            descLabel="Ingredientes"
             options={INGREDIENTES}
             getOptionLabel={(option) => option.nome}
             col_xs={12}
@@ -101,7 +101,7 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
           <InputDataAdornments
             read_only
             name_id="custo"
-            descLabel="Custos com ingredientes e embalagens"
+            descLabel="Custos com ingredientes"
             type="number"
             input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
             positionStartAdornment={

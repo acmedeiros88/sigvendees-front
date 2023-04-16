@@ -7,6 +7,7 @@ import { Card, CardContent, CardActions, InputAdornment } from "@mui/material";
 import {
   InputData,
   InputSelect,
+  ButtonContained,
   ButtonsSubmitCancel,
   InputDataAdornments,
   InputAutocomplete,
@@ -17,6 +18,8 @@ import TitleAndButton from "../../TitleAndButton";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 // MOCKS
 import { ROWS as RECEITAS } from "../../../__mocks/receitasDataGrid";
+import { ROWS as EMBALAGENS } from "../../../__mocks/ingredientesEmbalagensDataGrid";
+import TableItens from "../ingredientes-embalagens/TableItens";
 
 const OptionTipo: Array<Option> = [
   { value: 0, label: 'DOCE' },
@@ -61,7 +64,7 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
           />
           <InputSelect
             name_id="venda_em"
-            descLabel="Venda"
+            descLabel="Venda em"
             col_xs={12}
             col_sm={6}
             options={OptionVenda}
@@ -70,6 +73,21 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
             name_id="nome"
             descLabel="Nome"
             col_xs={12}
+            col_sm={9}
+            col_md={9}
+          />
+          <InputDataAdornments
+            read_only
+            name_id="preco"
+            descLabel="Valor de venda"
+            type="number"
+            input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
+            positionStartAdornment={
+              <InputAdornment position="start">R$</InputAdornment>
+            }
+            col_xs={12}
+            col_sm={3}
+            col_md={3}
           />
           <InputAutocomplete
             name_id="receitas"
@@ -78,9 +96,40 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
             getOptionLabel={(option) => option.nome}
             col_xs={12}
           />
+          <InputAutocomplete
+            name_id="embalagens"
+            descLabel="Embalagens"
+            options={EMBALAGENS}
+            getOptionLabel={(option) => option.nome}
+            col_xs={12}
+            col_md={12}
+            col_lg={6}
+          />
+          <InputData
+            name_id="quantidade"
+            descLabel="Quantidade"
+            type="number"
+            input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
+            col_xs={12}
+            col_sm={8}
+            col_md={6}
+            col_lg={3}
+          />
+          <ButtonContained
+            descLabel="Adicionar"
+            container_style={{ alignSelf: "center" }}
+            col_xs={12}
+            col_sm={4}
+            col_md={3}
+            col_lg={3}
+          />
+          <Grid xs={12} md={12} lg={12}>
+            <TableItens rows={EMBALAGENS} />
+          </Grid>
           <InputDataAdornments
-            name_id="vlr_venda"
-            descLabel="Preço"
+            read_only
+            name_id="custo_total"
+            descLabel="Custos total"
             type="number"
             input_props={{ inputMode: "numeric", pattern: "[0-9]*", min: 1 }}
             positionStartAdornment={

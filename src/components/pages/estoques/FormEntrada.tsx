@@ -45,6 +45,7 @@ const FormEntrada = ({ titulo }: { titulo: string }) => {
             name_id="listaProdutosEntrada"
             descLabel="Produto"
             options={INGREDIENTES_EMBALAGENS}
+            getOptionLabel={(option) => option.nome}
             col_xs={12}
             col_md={12}
             col_lg={12}

@@ -34,13 +34,13 @@ const COLUMNS: GridColDef[] = [
   },
   {
     field: "venda_em",
-    headerName: "Venda",
+    headerName: "Venda em",
     flex: 0.5,
     minWidth: 100,
   },
   {
     field: "vlr_venda",
-    headerName: "Valor venda",
+    headerName: "Valor de venda",
     flex: 0.5,
     minWidth: 100
   },

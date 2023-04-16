@@ -14,7 +14,7 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <Container maxWidth={false}>
-      <TitleAndButton title="Receitas" hrefTo="receitas/novo" />
+      <TitleAndButton title="Receitas" descButton="Nova" hrefTo="receitas/novo" />
       <GridProdutos columns={COLUMNS} rows={receitas} />
     </Container>
   );
