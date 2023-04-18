@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // MATERIAL UI
 import Grid from "@mui/material/Unstable_Grid2";
-import { Card, CardActions, CardContent, InputAdornment } from "@mui/material";
+import { Card, CardActions, CardContent, InputAdornment, Typography } from "@mui/material";
 // COMPONENTS
 import {
   InputData,
@@ -129,7 +129,8 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
             col_md={2}
             col_lg={2}
           />
-          <Grid xs={12} md={12} lg={12}>
+          <Grid xs={12}>
+          <Typography color="neutral.600" variant="subtitle2">Itens do pedido</Typography>
             <TableItens rows={PRODUTOS_PEDIDO} />
           </Grid>
         </CardContent>

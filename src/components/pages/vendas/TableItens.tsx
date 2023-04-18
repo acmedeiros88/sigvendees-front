@@ -7,12 +7,8 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  TableFooter,
-  Tooltip,
+  TableFooter
 } from "@mui/material";
-// ICONS
-import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
 // HOOKS
 import usePaginacao from "../../../hooks/usePaginacao";
 // COMPONENTS
@@ -33,10 +29,11 @@ const TableItens = ({ rows }: { rows: any[] }) => {
       <Table size="small" sx={{ minHeight: rows.length > 0 ? 0 : 150 }}>
         <TableHead>
           <TableRow>
-            <StyledTableCell>Código</StyledTableCell>
-            <StyledTableCell>Produto</StyledTableCell>
             <StyledTableCell>Qtd</StyledTableCell>
-            <StyledTableCell>Ação</StyledTableCell>
+            <StyledTableCell>Produto</StyledTableCell>
+            <StyledTableCell>Valor unitário&nbsp;R$</StyledTableCell>
+            <StyledTableCell>Desconto&nbsp;R$</StyledTableCell>
+            <StyledTableCell>Valor total&nbsp;R$</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -46,16 +43,11 @@ const TableItens = ({ rows }: { rows: any[] }) => {
               : rows
             ).map((row) => (
               <TableRow hover key={row.id}>
-                <TableCell>{row.id}</TableCell>
-                <TableCell>{row.nome}</TableCell>
                 <TableCell>{row.qtd}</TableCell>
-                <TableCell>
-                  <Tooltip title="Deletar" arrow>
-                    <IconButton size="small" onClick={() => alert("EXCLUIR LINHA: [" + row.id + "]")}>
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
+                <TableCell>{row.nome}</TableCell>
+                <TableCell>{row.custo}</TableCell>
+                <TableCell>{row.desconto}</TableCell>
+                <TableCell>{row.subTotal}</TableCell>
               </TableRow>
             ))
           ) : (
@@ -71,7 +63,7 @@ const TableItens = ({ rows }: { rows: any[] }) => {
           )}
           {emptyRows > 0 && (
             <TableRow style={{ height: 35 * emptyRows }}>
-              <TableCell colSpan={5} />
+              <TableCell colSpan={7} />
             </TableRow>
           )}
         </TableBody>
@@ -80,7 +72,7 @@ const TableItens = ({ rows }: { rows: any[] }) => {
             <CustomTablePagination
               dados={rows}
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-              colSpan={5}
+              colSpan={7}
               page={page}
               rowsPerPage={rowsPerPage}
               onPageChange={handleChangePage}

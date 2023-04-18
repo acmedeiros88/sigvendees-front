@@ -4,7 +4,7 @@ import type { NextPageWithLayout } from "../_app";
 import { Container } from "@mui/material";
 // COMPONENTS
 import Layout from "../../components/layout";
-import { DataTable as GridEstoque } from "../../components/table/DataTable";
+import { DataTable as GridEstoques } from "../../components/table/DataTable";
 import COLUMNS from "../../components/pages/estoques/ColumnsDataGrid";
 import TitleAndButton from "../../components/TitleAndButton";
 // MOCKS
@@ -15,7 +15,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <Container maxWidth={false}>
       <TitleAndButton title="Estoques" descButton="Entrada" hrefTo="estoques/entrada" />
-      <GridEstoque columns={COLUMNS} rows={EstoqueProdutos} />
+      <GridEstoques columns={COLUMNS} rows={EstoqueProdutos} />
     </Container>
   );
 };

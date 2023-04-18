@@ -8,7 +8,7 @@ const COLUMNS: GridColDef[] = [
     type: "number",
     width: 70,
     headerAlign: "left",
-    align: "left",
+    align: "left"
   },
   {
     field: "produto",

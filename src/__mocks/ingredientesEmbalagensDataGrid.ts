@@ -44,5 +44,14 @@ export const ROWS = [
       qtd: 2,
       custo: 10
     },
+    {
+      id: 6,
+      nome: "tanto faz",
+      qtdMinimaEmEstoque: "100 und",
+      tipo: "EMBALAGEM",
+      undMedida: "und",
+      qtd: 2,
+      custo: 10
+    },
   ];
   
