@@ -1,24 +1,49 @@
 import { ReactElement } from "react";
 import type { NextPageWithLayout } from "../_app";
+import { GetServerSideProps } from "next";
 //MATERIAL UI
 import { Container } from "@mui/material";
 // COMPONENTS
 import Layout from "../../components/layout";
-import { DataTable as GridClientes } from "../../components/table/DataTable";
-import COLUMNS from "../../components/pages/clientes/ColumnsDataGrid";
 import TitleAndButton from "../../components/TitleAndButton";
-// MOCKS
-import { ROWS as clientes } from "../../__mocks/clientesDataGrid";
+import { GridClientes } from "../../components/pages/clientes/GridClientes";
+//SERVICES
+import { getApiServerSide } from "../../services/serverSideFetch";
+import { getErrors } from "../../utils/errors";
+// MODELS
+import { Cliente } from "../../@types/Cliente";
 
-const Page: NextPageWithLayout = () => {
-
+const Page: NextPageWithLayout<{ clientes: Cliente[] }> = ({ clientes }) => {
   return (
     <Container maxWidth={false}>
       <TitleAndButton title="Clientes" hrefTo="clientes/novo" />
-      <GridClientes columns={COLUMNS} rows={clientes} />
+      <GridClientes clientes={clientes} />
     </Container>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  try {
+    const { apiServerSide } = getApiServerSide(ctx);
+
+    const { data: clientes } = await apiServerSide.get("/clientes");
+
+    return {
+      props: { clientes },
+    };
+
+  } catch (e) {
+    getErrors(e);
+
+    return {
+      redirect: {
+        destination: "500",
+        permanent: false,
+      },
+    };
+
+  }
+}
 
 Page.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 

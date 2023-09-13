@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useFetch } from "../../../hooks/useFetch";
 // MATERIAL UI
 import Grid from "@mui/material/Unstable_Grid2";
 import { Card, CardContent, CardActions } from "@mui/material";
@@ -27,14 +28,22 @@ const OptionEstados: Array<Option> = [
   { value: 2, label: 'Rio Grande do Sul' }
 ];
 
-const FormCadastro = ({ titulo }: { titulo: string }) => {
+export function FormCadastro({ titulo }: { titulo: string }) {
+  const { data: cliente } = useFetch<any>("https://api/clientes");
   const router = useRouter();
+  const { id } = router.query;
 
   const handleCancelar = useCallback(() => {
     //formik.resetForm();
     router.back();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useEffect(() => {
+  //   if (id) {
+
+  //   }
+  // }, []);
 
   return (
     <form autoComplete="off">
@@ -128,6 +137,4 @@ const FormCadastro = ({ titulo }: { titulo: string }) => {
       </Card>
     </form>
   );
-};
-
-export default FormCadastro;
+}

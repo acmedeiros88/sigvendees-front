@@ -17,6 +17,7 @@ import { Box, TablePaginationProps, Pagination } from "@mui/material";
 interface DataTableProps {
   columns: GridColDef[];
   rows: any[];
+  loading?: boolean;
 }
 
 function QuickSearchToolbar() {
@@ -72,6 +73,7 @@ export const DataTable = (props: DataTableProps) => {
         disableRowSelectionOnClick
         columns={props.columns}
         rows={props.rows}
+        loading={props.loading}
         pageSizeOptions={[10, 20, 50, 100]}
         slots={{
           toolbar: QuickSearchToolbar,

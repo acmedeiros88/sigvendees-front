@@ -4,7 +4,7 @@ import type { NextPageWithLayout } from "../_app";
 import { Container } from "@mui/material";
 // COMPONENTS
 import Layout from "../../components/layout";
-import FormCadastro from "../../components/pages/clientes/FormCadastro";
+import { FormCadastro } from "../../components/pages/clientes/FormCadastro";
 
 const Page: NextPageWithLayout = () => {
   return (
